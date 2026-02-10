@@ -1,10 +1,15 @@
 body {
-    font-family: sans-serif;
+    font-family: "Cantarell";
     text-align: center;
     background-color: #f0f8ff;
     padding: 20px;
 }
-
+h1 {
+    color:#061c40;
+}
+/*personatges-c1 {*/
+/*    font-size: 20px;*/
+/*}*/
 #regles {
     background: #fff;
     border: 1px solid #ccc;
@@ -12,6 +17,8 @@ body {
     margin-bottom: 20px;
     display: inline-block;
     text-align: left;
+    color: #061c40;
+    border-radius: 10px;
 }
 
 #escenari {
@@ -24,17 +31,26 @@ body {
 .riba {
     width: 30%;
     min-height: 200px;
-    background-color: #d2b48c; /* Color terra */
+    background-image: url("fondoarena.png");
     padding: 10px;
     border-radius: 10px;
+    border-width: 2px;
+    border-color: #6f2d11;
+    border-style: solid;
 }
 
 #zona-barca {
     width: 30%;
     min-height: 150px;
-    background-color: #87ceeb; /* Color aigua */
+    background-image: url("fondomar.png");
     border-radius: 10px;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-width: 2px;
+    border-color: #003b4f;
+    border-style: solid;
 }
 
 button {
@@ -44,6 +60,7 @@ button {
     background-color: #fff;
     border: 2px solid #333;
     border-radius: 5px;
+    font-size:30px;
 }
 
 button:hover {

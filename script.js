@@ -43,7 +43,6 @@ function actualitzarInterficie() {
                actualitzarInterficie();
            }
 
-
         });
 
         contenidorC1.appendChild(boto);
@@ -78,9 +77,8 @@ function actualitzarInterficie() {
                 actualitzarInterficie();
         });
         barcaC2.appendChild(boto)
-
-
     });
+
 
 // Costat a la dreta del riu
     costat2.forEach(element => {
@@ -112,14 +110,16 @@ function actualitzarInterficie() {
 
 }
 
+
 // Funció que aplica les regles del joc
 function buidarBarca() {
+
+    // Regles barca
     if(barca.length <= 0){
         missatgeDisplay.textContent = `No hi ha ningú`;
     }
     else if (!((barca.includes('👮🏻‍♂️') ||  barca.includes('🧔🏻') || barca.includes('👩🏼‍🦰'))))
-    {
-        missatgeDisplay.textContent = `No pots passar`;
+    {   missatgeDisplay.textContent = `No pots passar`;
     }
     else if ((barca.includes('👧🏻') || barca.includes('👧🏼')) && barca.includes('🧔🏻')){
         missatgeDisplay.textContent = 'Pare no pot estar amb filla'
@@ -127,12 +127,11 @@ function buidarBarca() {
     else if ((barca.includes('👦🏽') || barca.includes('👦🏼 ')) && barca.includes('👩🏼‍🦰')){
         missatgeDisplay.textContent = 'Mare no pot estar amb fill'
     }
-
     else if((barca.includes('👩🏼‍🦰') || barca.includes('🧔🏻')) && barca.includes('🥷🏼')) {
         missatgeDisplay.textContent = 'Lladre no pot estar amb familia'
     }
 
-
+    // Regles costat2
     else if( (costat2.includes('🥷🏼') && !costat2.includes('👮🏻‍♂️')) && (costat2.includes('🥷🏼') && costat2.length!==1)) {
         // console.log(costat2.includes('🥷🏼'), !costat2.includes('👮🏻‍♂️'),(costat2.length!==1) )
         missatgeDisplay.textContent = 'Lladre no pot estar tot sol amb familia'
@@ -144,7 +143,7 @@ function buidarBarca() {
         missatgeDisplay.textContent = 'Pare no pot estar tot sola amb els filles'
     }
 
-
+    // Regles costat1
     else if(costat1.includes('👩🏼‍🦰') && !costat1.includes('🧔🏻') && (costat1.includes('👦🏽')  || costat1.includes('👦🏼 '))) {
         missatgeDisplay.textContent = 'Mare no pot estar tot sola amb els fills'
     }
@@ -153,33 +152,25 @@ function buidarBarca() {
     }
     else if( (costat1.includes('🥷🏼') && !costat1.includes('👮🏻‍♂️')) && (costat1.includes('🥷🏼') && costat1.length!==1)) {
         missatgeDisplay.textContent = 'Lladre no pot estar tot sol amb familia'
-
     }
 
-
-    // else if(!(((costat1.includes('🥷🏼') && (costat1.length = 1)) || (costat1.includes('🥷🏼') && costat1.includes('👮🏻‍♂️')))))
-    // {
-    //     missatgeDisplay.textContent = 'Lladre no pot estar amb familia'
-    // }
+    // Moviment barca
     else{
         if (voraBarca === 'dreta'){
             voraBarca = 'esquerra';
-            barcaText.innerHTML="CREUAR -->"
+            barcaText.innerHTML="CREUAR ⟶"
             zonaBarca.style.alignItems = "flex-start";
 
         }else {
             voraBarca = 'dreta';
             zonaBarca.style.alignItems = "flex-end";
 
-            barcaText.innerHTML=" <-- CREUAR"
+            barcaText.innerHTML=" ⟵ CREUAR"
 
         }
     }
-
-
-
-
 }
+
 
 // Funció que comprova si has guanyat
 function comprovar() {
@@ -188,19 +179,5 @@ function comprovar() {
          setTimeout(alert('Has guanyat!'))
     }
 }
-
-// function creuar(){
-//     const boto = document.getElementById("btn-creuar");
-//     if (costat === "esquerra"){
-//         voraBarca.style.alignItems = "flex-end";
-//         boto.textContent = "⬅ CREUAR";
-//         costat="dreta"
-//     }
-//     else{
-//         voraBarca.style.alignItems = "flex-start";
-//         boto.textContent = "CREUAR " ;
-//         costat="esquerra";
-//     }
-// }
 
 actualitzarInterficie();

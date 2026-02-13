@@ -160,12 +160,14 @@ function buidarBarca() {
             voraBarca = 'esquerra';
             barcaText.innerHTML="CREUAR ⟶"
             zonaBarca.style.alignItems = "flex-start";
+            comptador()
+
 
         }else {
             voraBarca = 'dreta';
             zonaBarca.style.alignItems = "flex-end";
-
             barcaText.innerHTML=" ⟵ CREUAR"
+            comptador()
 
         }
     }
@@ -178,6 +180,15 @@ function comprovar() {
         missatgeDisplay.textContent = 'Has guanyat!'
          setTimeout(alert('Has guanyat!'))
     }
+}
+
+let intents=0
+
+// Funció que compta els intents
+function comptador(){
+
+    intents++;
+    document.getElementById('moviments').innerText=intents;
 }
 
 actualitzarInterficie();
